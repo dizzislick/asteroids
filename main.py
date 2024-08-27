@@ -1,5 +1,6 @@
 import pygame
 from constants import *
+from player import Player
 
 def main():
     print("Starting asteroids!")
@@ -11,14 +12,23 @@ def main():
     clock = pygame.time.Clock()
     dt = 0
 
-    while('slizzi' != 'dick'):
+    player1 = Player((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2))
+
+    while(True):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
-        screen.fill(pygame.Color(255, 255, 255))
+            
+        screen.fill((0, 0, 0))
+        print(player1.position)
+        try:
+            player1.draw(screen)
+            print(player1)
+        except Exception as e:
+            print(e)
 
         dt = clock.tick(60) / 1000
-        clock.tick(60)
+        pygame.display.update()
 
 
 if __name__ == "__main__":
