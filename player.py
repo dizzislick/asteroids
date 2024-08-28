@@ -14,10 +14,8 @@ class Player(CircleShape):
         a = self.position + forward * self.radius
         b = self.position - forward * self.radius - right
         c = self.position - forward * self.radius + right
-        print([a, b, c])
         return [a, b, c]
     
     def draw(self, screen):
-        print('drawing')
         super().draw(screen)
         pygame.draw.polygon(screen, (255, 255, 255), self.triangle(), 2)

@@ -20,12 +20,7 @@ def main():
                 return
             
         screen.fill((0, 0, 0))
-        print(player1.position)
-        try:
-            player1.draw(screen)
-            print(player1)
-        except Exception as e:
-            print(e)
+        player1.draw(screen)
 
         dt = clock.tick(60) / 1000
         pygame.display.update()
