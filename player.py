@@ -5,7 +5,6 @@ from constants import PLAYER_RADIUS, PLAYER_TURN_SPEED, PLAYER_SPEED
 class Player(CircleShape):
     def __init__(self, x, y):
         super().__init__(x, y, PLAYER_RADIUS)
-        self.position = pygame.Vector2(x, y)
         self.rotation = 0
 
     def rotate(self, dt):
@@ -36,5 +35,4 @@ class Player(CircleShape):
         return [a, b, c]
     
     def draw(self, screen):
-        super().draw(screen)
         pygame.draw.polygon(screen, (255, 255, 255), self.triangle(), 2)
