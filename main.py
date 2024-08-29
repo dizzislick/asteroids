@@ -20,6 +20,9 @@ def main():
     drawable = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
     bullets = pygame.sprite.Group()
+    font = pygame.font.Font(None, 36)
+
+
 
     AsteroidField.containers = (updateable)
     Player.containers = (updateable, drawable)
@@ -50,7 +53,10 @@ def main():
                 if bullet.collides_with(asteroid):
                     asteroid.split()
                     bullet.kill()
+                    player1.score += 1
         
+        score_text = font.render(f'Score: {player1.score}', True, (255, 255, 255))
+        screen.blit(score_text, (10, 10))
 
         dt = clock.tick(60) / 1000
         pygame.display.update()
