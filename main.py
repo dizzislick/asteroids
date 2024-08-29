@@ -48,7 +48,8 @@ def main():
 
         for asteroid in asteroids:
             if asteroid.collides_with(player1):
-                sys.exit("game over")
+                sys.exit(f"game over :(\nfinal score: {player1.score}")
+                
             for bullet in bullets:
                 if bullet.collides_with(asteroid):
                     asteroid.split()
