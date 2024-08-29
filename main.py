@@ -3,6 +3,7 @@ from constants import *
 from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
+import sys
 
 def main():
     print("Starting asteroids!")
@@ -30,8 +31,6 @@ def main():
             if event.type == pygame.QUIT:
                 return
 
-        
-
         for entity in updateable:
             entity.update(dt)
 
@@ -39,6 +38,10 @@ def main():
 
         for entity in drawable:
             entity.draw(screen)
+
+        for asteroid in asteroids:
+            if asteroid.collides_with(player1):
+                sys.exit("game over")
         
 
         dt = clock.tick(60) / 1000
